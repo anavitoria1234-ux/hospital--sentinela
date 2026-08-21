@@ -15,6 +15,32 @@
             font-family: "Segoe UI", Arial, sans-serif;
         }
 
+        :root {
+            --navy-950: #081521;
+            --navy-900: #0d1f2d;
+            --navy-800: #132b3a;
+
+            --teal-700: #176b6b;
+            --teal-600: #238080;
+            --teal-500: #3b9b98;
+
+            --gold-500: #c6a15b;
+            --gold-400: #d8b978;
+
+            --cream: #f8f7f3;
+            --cream-dark: #eeece5;
+
+            --text-dark: #172b3a;
+            --text-muted: #71808a;
+
+            --white: #ffffff;
+        }
+
+
+        /* =========================================================
+           FUNDO
+        ========================================================= */
+
         body {
             width: 100vw;
             height: 100vh;
@@ -25,50 +51,69 @@
             align-items: center;
 
             background:
-                radial-gradient(circle at top left, #1e40af 0%, transparent 35%),
-                linear-gradient(135deg, #0f172a, #1e293b);
+                radial-gradient(
+                    circle at 8% 10%,
+                    rgba(35, 128, 128, 0.18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 92% 90%,
+                    rgba(198, 161, 91, 0.08),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #07141f 0%,
+                    #0b1b28 48%,
+                    #102635 100%
+                );
         }
 
-        /* CONTAINER */
+
+        /* =========================================================
+           CONTAINER PRINCIPAL
+        ========================================================= */
 
         .tv-container {
             width: 94vw;
             height: 90vh;
 
             display: flex;
-            gap: 15px;
+            gap: 18px;
         }
 
-        /* PAINEL ESQUERDO */
+
+        /* =========================================================
+           PAINÉIS
+        ========================================================= */
 
         .left-panel {
             width: 30%;
 
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 18px;
         }
-
-        /* PAINEL DIREITO */
 
         .right-panel {
             width: 70%;
 
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 18px;
         }
 
-        /* CAIXAS */
+
+        /* =========================================================
+           BASE DOS CARDS
+        ========================================================= */
 
         .box {
             position: relative;
 
-            background: #ffffff;
+            border-radius: 18px;
 
-            border-radius: 14px;
-
-            padding: 20px;
+            overflow: hidden;
 
             display: flex;
             flex-direction: column;
@@ -77,12 +122,13 @@
 
             text-align: center;
 
-            overflow: hidden;
-
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.20);
+            box-shadow:
+                0 14px 35px rgba(0, 0, 0, 0.18),
+                0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
-        /* LINHA NO TOPO */
+
+        /* Linha institucional discreta */
 
         .box::before {
             content: "";
@@ -93,133 +139,318 @@
             left: 0;
 
             width: 100%;
-            height: 4px;
+            height: 3px;
 
-            background: linear-gradient(
-                90deg,
-                #2563eb,
-                #06b6d4
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--teal-700),
+                    var(--teal-500),
+                    var(--gold-400)
+                );
+
+            opacity: 0.9;
         }
 
-        /* TÍTULOS */
+
+        /* =========================================================
+           TÍTULOS
+        ========================================================= */
 
         .box-title {
-            color: #334155;
+            color: var(--text-dark);
 
-            font-size: 1.6vw;
+            font-size: 1.35vw;
 
-            font-weight: 800;
+            font-weight: 700;
 
             text-transform: uppercase;
 
-            letter-spacing: 1px;
+            letter-spacing: 2px;
 
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
-        /* GUICHÊ */
+
+        /* =========================================================
+           GUICHÊ
+        ========================================================= */
 
         .local-box {
             height: 48%;
             flex: none;
+
+            padding: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #fbfaf7 0%,
+                    #f2f0e9 100%
+                );
+
+            border: 1px solid rgba(255, 255, 255, 0.75);
         }
 
+
+        .local-box .box-title {
+            color: var(--navy-800);
+
+            font-size: 1.45vw;
+
+            letter-spacing: 2.5px;
+        }
+
+
         .local-number {
-            color: #2563eb;
+            color: var(--teal-700);
 
             font-size: 7vw;
 
-            font-weight: 900;
+            font-weight: 800;
 
-            line-height: 1;
+            line-height: 0.95;
+
+            letter-spacing: -3px;
+
+            text-shadow:
+                0 5px 20px rgba(23, 107, 107, 0.12);
         }
+
 
         .local-type {
-            color: #64748b;
+            color: var(--text-muted);
 
-            font-size: 1.5vw;
+            font-size: 1.05vw;
 
-            font-weight: 700;
+            font-weight: 600;
 
-            margin-top: 8px;
+            margin-top: 12px;
 
             text-transform: uppercase;
+
+            letter-spacing: 1.8px;
         }
 
-        /* HISTÓRICO */
+
+        /* Pequeno detalhe decorativo */
+
+        .local-box::after {
+            content: "";
+
+            position: absolute;
+
+            width: 110px;
+            height: 110px;
+
+            border-radius: 50%;
+
+            right: -55px;
+            bottom: -55px;
+
+            border: 1px solid rgba(35, 128, 128, 0.12);
+        }
+
+
+        /* =========================================================
+           HISTÓRICO
+        ========================================================= */
 
         .history-box {
             flex: 1;
 
             justify-content: flex-start;
             align-items: stretch;
+
+            padding: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #f8f7f3 0%,
+                    #efeee8 100%
+                );
+
+            border: 1px solid rgba(255, 255, 255, 0.7);
         }
+
 
         .history-box .box-title {
             align-self: center;
 
-            font-size: 1.3vw;
+            color: var(--navy-800);
 
-            margin-bottom: 15px;
+            font-size: 1.05vw;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 18px;
         }
+
 
         #history-list {
             list-style: none;
 
             width: 100%;
 
-            color: #334155;
+            color: var(--text-dark);
 
-            font-size: 1.1vw;
+            font-size: 0.98vw;
 
-            font-weight: 700;
+            font-weight: 600;
 
             text-align: left;
         }
 
+
         #history-list li {
-            padding: 10px 12px;
+            position: relative;
 
-            margin-bottom: 8px;
+            padding: 12px 14px 12px 18px;
 
-            border-radius: 8px;
+            margin-bottom: 9px;
 
-            background: #f1f5f9;
+            border-radius: 9px;
 
-            border-left: 4px solid #2563eb;
+            background: rgba(255, 255, 255, 0.72);
+
+            border: 1px solid rgba(19, 43, 58, 0.06);
+
+            box-shadow:
+                0 3px 10px rgba(0, 0, 0, 0.04);
+
+            color: #52616b;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
         }
+
+
+        #history-list li::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 9px;
+            bottom: 9px;
+
+            width: 3px;
+
+            border-radius: 3px;
+
+            background: var(--teal-600);
+        }
+
 
         #history-list li:first-child {
-            background: #dbeafe;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(35, 128, 128, 0.10),
+                    rgba(255, 255, 255, 0.85)
+                );
 
-            color: #1d4ed8;
+            color: var(--navy-800);
 
-            border-left-color: #1d4ed8;
+            font-weight: 700;
         }
 
-        /* PACIENTE */
+
+        #history-list li:first-child::before {
+            background: var(--gold-500);
+        }
+
+
+        /* =========================================================
+           PACIENTE
+        ========================================================= */
 
         .patient-box {
             flex: 1;
 
             min-height: 0;
+
+            padding: 30px;
+
+            background:
+                radial-gradient(
+                    circle at 88% 15%,
+                    rgba(59, 155, 152, 0.13),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 15% 90%,
+                    rgba(198, 161, 91, 0.06),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    145deg,
+                    #0d202e 0%,
+                    #102a39 55%,
+                    #0c1c29 100%
+                );
+
+            border:
+                1px solid rgba(255, 255, 255, 0.06);
+
+            box-shadow:
+                0 18px 45px rgba(0, 0, 0, 0.30);
         }
+
+
+        .patient-box::before {
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--teal-600),
+                    var(--teal-500),
+                    var(--gold-400)
+                );
+        }
+
+
+        .patient-box::after {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            right: -160px;
+            bottom: -180px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.045);
+        }
+
 
         .patient-box .box-title {
-            color: #64748b;
+            color: rgba(255, 255, 255, 0.58);
 
-            font-size: 2vw;
+            font-size: 1.35vw;
 
-            margin-bottom: 20px;
+            letter-spacing: 3px;
+
+            margin-bottom: 22px;
         }
 
+
         .patient-name {
-            color: #dc2626;
+            position: relative;
+            z-index: 2;
 
-            font-size: 5.5vw;
+            color: var(--gold-400);
 
-            font-weight: 900;
+            font-size: 5.3vw;
+
+            font-weight: 800;
 
             line-height: 1.05;
 
@@ -227,18 +458,23 @@
 
             word-break: break-word;
 
+            letter-spacing: -1.5px;
+
             text-shadow:
-                0 3px 10px rgba(220, 38, 38, 0.15);
+                0 5px 25px rgba(0, 0, 0, 0.25);
         }
 
-        /* LOGO */
+
+        /* =========================================================
+           LOGO / RODAPÉ
+        ========================================================= */
 
         .logo-box {
             flex: none;
 
-            height: 100px;
+            height: 76px;
 
-            padding: 10px 20px;
+            padding: 10px 25px;
 
             display: flex;
             flex-direction: row;
@@ -247,26 +483,62 @@
             align-items: center;
 
             gap: 12px;
+
+            background:
+                rgba(248, 247, 243, 0.97);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.7);
+
+            box-shadow:
+                0 8px 22px rgba(0, 0, 0, 0.14);
         }
 
+
         .logo {
-            width: 55px;
-            height: 55px;
+            width: 42px;
+            height: 42px;
 
             object-fit: contain;
         }
 
+
         .logo-text {
-            color: #2563eb;
+            color: var(--navy-800);
 
-            font-size: 1.3vw;
+            font-size: 1.05vw;
 
-            font-weight: 900;
+            font-weight: 800;
 
             text-transform: uppercase;
+
+            letter-spacing: 1.6px;
         }
 
-        /* ANIMAÇÃO */
+
+        /* Pequeno ponto de destaque */
+
+        .logo-text::before {
+            content: "";
+
+            display: inline-block;
+
+            width: 6px;
+            height: 6px;
+
+            margin-right: 10px;
+
+            border-radius: 50%;
+
+            background: var(--teal-600);
+
+            vertical-align: middle;
+        }
+
+
+        /* =========================================================
+           ANIMAÇÃO DE NOVA CHAMADA
+        ========================================================= */
 
         @keyframes flash {
 
@@ -274,39 +546,48 @@
                 transform: scale(1);
 
                 box-shadow:
-                    0 6px 18px rgba(0, 0, 0, 0.20);
+                    0 18px 45px rgba(0, 0, 0, 0.30);
             }
 
-            25% {
-                transform: scale(1.02);
+            20% {
+                transform: scale(1.008);
 
                 box-shadow:
-                    0 0 0 7px rgba(37, 99, 235, 0.25),
-                    0 12px 35px rgba(37, 99, 235, 0.45);
+                    0 0 0 5px rgba(59, 155, 152, 0.16),
+                    0 0 35px rgba(59, 155, 152, 0.30),
+                    0 22px 55px rgba(0, 0, 0, 0.34);
             }
 
-            50% {
+            40% {
                 transform: scale(1);
             }
 
-            75% {
-                transform: scale(1.02);
+            60% {
+                transform: scale(1.008);
 
                 box-shadow:
-                    0 0 0 7px rgba(37, 99, 235, 0.25),
-                    0 12px 35px rgba(37, 99, 235, 0.45);
+                    0 0 0 5px rgba(198, 161, 91, 0.13),
+                    0 0 35px rgba(198, 161, 91, 0.24),
+                    0 22px 55px rgba(0, 0, 0, 0.34);
             }
 
             100% {
                 transform: scale(1);
+
+                box-shadow:
+                    0 18px 45px rgba(0, 0, 0, 0.30);
             }
         }
 
+
         .flash {
-            animation: flash 0.6s ease 3;
+            animation: flash 0.7s ease 3;
         }
 
-        /* RESPONSIVO */
+
+        /* =========================================================
+           RESPONSIVO
+        ========================================================= */
 
         @media (max-width: 900px) {
 
@@ -317,29 +598,45 @@
                 gap: 10px;
             }
 
+
             .left-panel,
             .right-panel {
                 gap: 10px;
             }
 
-            .box {
-                border-radius: 12px;
 
-                padding: 12px;
+            .box {
+                border-radius: 13px;
+
+                padding: 14px;
             }
+
 
             .patient-name {
                 font-size: 5vw;
             }
 
-            .logo-box {
-                height: 80px;
+
+            .patient-box .box-title {
+                font-size: 1.8vw;
             }
 
-            .logo {
-                width: 45px;
-                height: 45px;
+
+            .local-number {
+                font-size: 7vw;
             }
+
+
+            .logo-box {
+                height: 68px;
+            }
+
+
+            .logo {
+                width: 38px;
+                height: 38px;
+            }
+
 
             .logo-text {
                 font-size: 12px;
